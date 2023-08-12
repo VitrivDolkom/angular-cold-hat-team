@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "cold-hat-team",
+            "prefix": "cht",
             "style": "kebab-case"
           }
         ]
