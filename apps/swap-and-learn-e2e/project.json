@@ -1,0 +1,33 @@
+{
+  "name": "swap-and-learn-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/swap-and-learn-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/swap-and-learn-e2e/cypress.config.ts",
+        "devServerTarget": "swap-and-learn:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "swap-and-learn:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "swap-and-learn:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/swap-and-learn-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["swap-and-learn"]
+}
